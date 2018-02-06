@@ -6,15 +6,15 @@ package edu.rlv.cosc60.activities;
  */
 public class PostFixExpression {
     
-    public static String toPostFix(String fullyParenthesizedInfix){
+    public String toPostFix(String fullyParenthesizedInfix){
+        return "";
+    }
+    
+    public String toFullyParenthesizedInfix(String postFix){
         throw new UnsupportedOperationException();
     }
     
-    public static String toFullyParenthesizedInfix(String postFix){
-        throw new UnsupportedOperationException();
-    }
-    
-    public static int evaluate(String postFix){
+    public int evaluate(String postFix){
         throw new UnsupportedOperationException();
     }
     
