@@ -57,7 +57,7 @@ public class PostFixExpressionTest {
     }
     
     private String generateRandomArithmeticExpression(int numOps, int minVal, int maxVal){
-        String ops[] = {"+","-","*","/"};
+        String ops[] = {"+","-","*"};
         Random rnd = ThreadLocalRandom.current();
         String[] operators = new String[numOps];
         
