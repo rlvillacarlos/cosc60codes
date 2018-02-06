@@ -13,9 +13,9 @@ public class FullyParenthesizedEvaluator {
      * @param args the command line arguments
      */
     
-    public static float evaluate(String exp){
+    public static int evaluate(String exp){
         Stack<Character> operator = new Stack<>(1);
-        Stack<Float> operands = new Stack<>(1);
+        Stack<Integer> operands = new Stack<>(1);
         
         int i = 0;
         
@@ -26,7 +26,7 @@ public class FullyParenthesizedEvaluator {
                 operator.push(c);
                 i++;
             } else if (c == ')') {//If closing parenthesis
-                 float op2 = operands.pop(), op1 = operands.pop();
+                 int op2 = operands.pop(), op1 = operands.pop();
                  switch(operator.pop()){
                      case '+': operands.push(op1 + op2);break;
                      case '-': operands.push(op1 - op2);break;
@@ -41,9 +41,9 @@ public class FullyParenthesizedEvaluator {
                     s.append(c);
                     i++;
                     c = exp.charAt(i);
-                }while(Character.isDigit(c) || c == '.');      
+                }while(Character.isDigit(c));      
                 
-                float operand = Float.parseFloat(s.toString());
+                int operand = Integer.parseInt(s.toString());
                 operands.push(operand);
             
             } else {//Ignore all other input
@@ -51,14 +51,14 @@ public class FullyParenthesizedEvaluator {
             }
         }
         
-        return operands.size() == 1? operands.pop(): Float.NaN;
+        return operands.size() == 1? operands.pop(): 0;
     }
     
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.print("Expression: ");
         String exp = in.nextLine();
-        System.out.printf("Answer: %.2f %n",evaluate(exp));
+        System.out.printf("Answer: %d %n",evaluate(exp));
         
     }
     
