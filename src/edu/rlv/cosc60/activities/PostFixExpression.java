@@ -14,7 +14,7 @@ public class PostFixExpression {
         throw new UnsupportedOperationException();
     }
     
-    public static float evaluate(String postFix){
+    public static int evaluate(String postFix){
         throw new UnsupportedOperationException();
     }
     
