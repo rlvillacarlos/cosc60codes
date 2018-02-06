@@ -7,7 +7,7 @@ package edu.rlv.cosc60.activities;
 public class PostFixExpression {
     
     public String toPostFix(String fullyParenthesizedInfix){
-        return "";
+        throw new UnsupportedOperationException();
     }
     
     public String toFullyParenthesizedInfix(String postFix){
