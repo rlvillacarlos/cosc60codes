@@ -1,11 +1,10 @@
 package edu.rlv.cosc60.activities;
 
+import edu.rlv.cosc60.checker.PostFixChecker;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,39 +13,23 @@ import static org.junit.Assert.*;
  * @author russel
  */
 public class PostFixExpressionTest {
+    PostFixExpression postFixExp;
     
-    public PostFixExpressionTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
     
     @Before
     public void setUp() {
-        System.out.println(generateRandomArithmeticExpression(3, 1, 20));
+        postFixExp = new PostFixExpression();
     }
     
-    @After
-    public void tearDown() {
-    }
-
-    /**
+     /**
      * Test of toPostFix method, of class PostFixExpression.
      */
     @Test
     public void testToPostFix() {
         System.out.println("toPostFix");
-        String fullyParenthesizedInfix = "";
-        String expResult = "";
-        String result = PostFixExpression.toPostFix(fullyParenthesizedInfix);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String exp = generateRandomArithmeticExpression(4, 1, 20);
+        boolean res = PostFixChecker.checkToPostFix(postFixExp, exp);
+        assertTrue(PostFixChecker.getLastErrorMessage(),res);
     }
 
     /**
@@ -55,12 +38,10 @@ public class PostFixExpressionTest {
     @Test
     public void testToFullyParenthesizedInfix() {
         System.out.println("toFullyParenthesizedInfix");
-        String postFix = "";
-        String expResult = "";
-        String result = PostFixExpression.toFullyParenthesizedInfix(postFix);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String exp = generateRandomArithmeticExpression(4, 1, 20);
+        String errMsg = "";
+        boolean res = PostFixChecker.checktoFullyParenthesizedInfix(postFixExp, exp);
+        assertTrue(PostFixChecker.getLastErrorMessage(),res);
     }
 
     /**
@@ -68,13 +49,11 @@ public class PostFixExpressionTest {
      */
     @Test
     public void testEvaluate() {
-        System.out.println("evaluate");
-        String postFix = "";
-        float expResult = 0.0F;
-        float result = PostFixExpression.evaluate(postFix);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        System.out.println("Evaluate");
+        String exp = generateRandomArithmeticExpression(4, 1, 20);
+        String errMsg = "";
+        boolean res = PostFixChecker.checkEvaluate(postFixExp, exp);        
+        assertTrue(PostFixChecker.getLastErrorMessage(),res);
     }
     
     private String generateRandomArithmeticExpression(int numOps, int minVal, int maxVal){
