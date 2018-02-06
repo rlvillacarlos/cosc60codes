@@ -34,7 +34,7 @@ public class FullyParenthesizedEvaluator {
                      case '/': operands.push(op1 / op2);break;
                  }
                  i++;
-            } else if(Character.isDigit(c) || c == '.') {//If a digit
+            } else if(Character.isDigit(c)) {//If a digit
                 //Read all consecutove digits in the input and convert to float
                 StringBuilder s = new StringBuilder();
                 do{
