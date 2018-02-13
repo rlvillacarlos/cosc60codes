@@ -1,9 +1,8 @@
 package edu.rlv.cosc60.activities;
 
-import edu.rlv.cosc60.checker.PostFixChecker;
+import edu.rlv.cosc60.checker.PreFixChecker;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,48 +11,46 @@ import static org.junit.Assert.*;
  *
  * @author russel
  */
-public class PostFixExpressionTest {
-    PostFixExpression postFixExp;
+public class PreFixExpressionTest {
+    PreFixExpression preFixExp;
     
     
     @Before
     public void setUp() {
-        postFixExp = new PostFixExpression();
+        preFixExp = new PreFixExpression();
     }
     
      /**
-     * Test of toPostFix method, of class PostFixExpression.
+     * Test of toPreFix method, of class PreFixExpression.
      */
     @Test
-    public void testToPostFix() {
-        System.out.println("toPostFix");
+    public void testToPreFix() {
+        System.out.println("toPreFixFix");
         String exp = generateRandomArithmeticExpression(4, 1, 20);
-        boolean res = PostFixChecker.checkToPostFix(postFixExp, exp);
-        assertTrue(PostFixChecker.getLastErrorMessage(),res);
+        boolean res = PreFixChecker.checkToPreFix(preFixExp, exp);
+        assertTrue(PreFixChecker.getLastErrorMessage(),res);
     }
 
     /**
-     * Test of toFullyParenthesizedInfix method, of class PostFixExpression.
+     * Test of toFullyParenthesizedInfix method, of class PreFixExpression.
      */
     @Test
     public void testToFullyParenthesizedInfix() {
         System.out.println("toFullyParenthesizedInfix");
         String exp = generateRandomArithmeticExpression(4, 1, 20);
-        String errMsg = "";
-        boolean res = PostFixChecker.checktoFullyParenthesizedInfix(postFixExp, exp);
-        assertTrue(PostFixChecker.getLastErrorMessage(),res);
+        boolean res = PreFixChecker.checktoFullyParenthesizedInfix(preFixExp, exp);
+        assertTrue(PreFixChecker.getLastErrorMessage(),res);
     }
 
     /**
-     * Test of evaluate method, of class PostFixExpression.
+     * Test of evaluate method, of class PreFixExpression.
      */
     @Test
     public void testEvaluate() {
         System.out.println("Evaluate");
         String exp = generateRandomArithmeticExpression(4, 1, 20);
-        String errMsg = "";
-        boolean res = PostFixChecker.checkEvaluate(postFixExp, exp);        
-        assertTrue(PostFixChecker.getLastErrorMessage(),res);
+        boolean res = PreFixChecker.checkEvaluate(preFixExp, exp);        
+        assertTrue(PreFixChecker.getLastErrorMessage(),res);
     }
     
     private String generateRandomArithmeticExpression(int numOps, int minVal, int maxVal){

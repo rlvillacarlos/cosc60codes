@@ -4,13 +4,13 @@ package edu.rlv.cosc60.activities;
  *
  * @author russel
  */
-public class PostFixExpression {
+public class PreFixExpression {
     
-    public String toPostFix(String fullyParenthesizedInfix){
+    public String toPreFix(String fullyParenthesizedInfix){
         throw new UnsupportedOperationException();
     }
     
-    public String toFullyParenthesizedInfix(String postFix){
+    public String toFullyParenthesizedInfix(String preFix){
         throw new UnsupportedOperationException();
     }
     

@@ -13,9 +13,9 @@ public class FullyParenthesizedEvaluator {
      * @param args the command line arguments
      */
     
-    public static int evaluate(String exp){
+    public static String evaluate(String exp){
         Stack<Character> operator = new Stack<>(1);
-        Stack<Integer> operands = new Stack<>(1);
+        Stack<String> operands = new Stack<>(1);
         
         int i = 0;
         
@@ -26,13 +26,15 @@ public class FullyParenthesizedEvaluator {
                 operator.push(c);
                 i++;
             } else if (c == ')') {//If closing parenthesis
-                 int op2 = operands.pop(), op1 = operands.pop();
-                 switch(operator.pop()){
-                     case '+': operands.push(op1 + op2);break;
-                     case '-': operands.push(op1 - op2);break;
-                     case '*': operands.push(op1 * op2);break;
-                     case '/': operands.push(op1 / op2);break;
-                 }
+                 String op2 = operands.pop(), op1 = operands.pop();
+                 char op = operator.pop();
+                 operands.push(op + " " + op1 + " " + op2);
+//                 switch(operator.pop()){
+//                     case '+': operands.push(op1 + op2);break;
+//                     case '-': operands.push(op1 - op2);break;
+//                     case '*': operands.push(op1 * op2);break;
+//                     case '/': operands.push(op1 / op2);break;
+//                 }
                  i++;
             } else if(Character.isDigit(c)) {//If a digit
                 //Read all consecutove digits in the input and convert to float
@@ -43,22 +45,22 @@ public class FullyParenthesizedEvaluator {
                     c = exp.charAt(i);
                 }while(Character.isDigit(c));      
                 
-                int operand = Integer.parseInt(s.toString());
-                operands.push(operand);
+//                int operand = Integer.parseInt(s.toString());
+                operands.push(s.toString());
             
             } else {//Ignore all other input
                 i++;
             }
         }
         
-        return operands.size() == 1? operands.pop(): 0;
+        return operands.size() == 1? operands.pop(): "";
     }
     
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.print("Expression: ");
         String exp = in.nextLine();
-        System.out.printf("Answer: %d %n",evaluate(exp));
+        System.out.printf("Answer: %s %n",evaluate(exp));
         
     }
     
