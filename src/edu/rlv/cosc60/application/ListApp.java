@@ -12,6 +12,10 @@ public class ListApp {
     /**
      * @param args the command line arguments
      */
+    
+    public static <E> void reverse(List<E> list){
+        
+    }
     public static void main(String[] args) {
         List<String> list = new ArrayList<>(1);
         
