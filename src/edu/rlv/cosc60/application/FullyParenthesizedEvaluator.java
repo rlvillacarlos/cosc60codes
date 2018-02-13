@@ -1,5 +1,6 @@
 package edu.rlv.cosc60.application;
 
+import edu.rlv.cosc60.ArrayStack;
 import edu.rlv.cosc60.Stack;
 import java.util.Scanner;
 
@@ -14,8 +15,8 @@ public class FullyParenthesizedEvaluator {
      */
     
     public static String evaluate(String exp){
-        Stack<Character> operator = new Stack<>(1);
-        Stack<String> operands = new Stack<>(1);
+        Stack<Character> operator = new ArrayStack<>(1);
+        Stack<String> operands = new ArrayStack<>(1);
         
         int i = 0;
         

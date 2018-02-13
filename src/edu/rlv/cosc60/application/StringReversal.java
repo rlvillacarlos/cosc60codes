@@ -1,6 +1,6 @@
 package edu.rlv.cosc60.application;
 
-import edu.rlv.cosc60.Stack;
+import edu.rlv.cosc60.ArrayStack;
 import java.util.Scanner;
 
 /**
@@ -16,7 +16,7 @@ public class StringReversal {
         Scanner in = new Scanner(System.in);
         System.out.print("Input: ");
         String str = in.nextLine();
-        Stack<Character> stack = new Stack<>(1);
+        ArrayStack<Character> stack = new ArrayStack<>(1);
         
         for(int i =0; i<str.length();i++){
             stack.push(str.charAt(i));

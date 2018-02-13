@@ -1,5 +1,6 @@
 package edu.rlv.cosc60.application;
 
+import edu.rlv.cosc60.ArrayStack;
 import edu.rlv.cosc60.Stack;
 
 /**
@@ -12,7 +13,7 @@ public class StackApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Stack<String> stack = new Stack<>(1);
+        Stack<String> stack = new ArrayStack<>(1);
         
         stack.push("Mark");
         stack.push("John");

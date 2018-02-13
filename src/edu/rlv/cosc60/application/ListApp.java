@@ -1,5 +1,6 @@
 package edu.rlv.cosc60.application;
 
+import edu.rlv.cosc60.ArrayList;
 import edu.rlv.cosc60.List;
 
 /**
@@ -12,7 +13,7 @@ public class ListApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        List<String> list = new List<>(1);
+        List<String> list = new ArrayList<>(1);
         
         list.add("James");
         list.add("Ana");
