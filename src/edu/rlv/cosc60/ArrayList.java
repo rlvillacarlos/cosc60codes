@@ -26,12 +26,14 @@ public class ArrayList<E> implements List<E> {
         next = 0;
     }
 
+    @Override
     public E get(int i){
         failOnInvalidIndex(i);
         
         return list[i];
     }
     
+    @Override
     public E set(int i, E e){
         failOnInvalidIndex(i);
         
@@ -41,6 +43,7 @@ public class ArrayList<E> implements List<E> {
         return prev;
     }
     
+    @Override
     public boolean add(int i, E e) {
         if (i != next) {
             failOnInvalidIndex(i);
@@ -64,6 +67,7 @@ public class ArrayList<E> implements List<E> {
         return add(next, e);
     }
 
+    @Override
     public E remove(int i) {
         failOnInvalidIndex(i);
 
@@ -84,6 +88,7 @@ public class ArrayList<E> implements List<E> {
         return tmp;
     }
 
+    @Override
     public boolean remove(E e) {
         int i = -1;
 
@@ -108,10 +113,12 @@ public class ArrayList<E> implements List<E> {
         return false;
     }
 
+    @Override
     public boolean contains(E e) {
         return indexOf(e) != -1;
     }
 
+    @Override
     public int indexOf(E e) {
 
         for (int i = 0; i < next; i++) {
