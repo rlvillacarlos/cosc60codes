@@ -130,6 +130,7 @@ public class ArrayList<E> implements List<E> {
     }
 
     
+    @Override
     public int size() {
         return next;
     }
@@ -138,6 +139,7 @@ public class ArrayList<E> implements List<E> {
         return 0 == next;
     }
     
+    @Override
     public void clear(){
         next = 0;
         resize();
