@@ -26,4 +26,8 @@ public interface List<E> extends Iterable<E> {
     public boolean isEmpty();
     
     public void clear();
+    
+    public default List<E> sublist(int start, int end){
+        throw new UnsupportedOperationException("Operation not supported");
+    }
 }
