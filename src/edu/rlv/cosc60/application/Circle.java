@@ -16,5 +16,12 @@ public class Circle extends Shape{
     public double area() {
         return Math.pow(radius, 2)*Math.PI;
     }
+
+    @Override
+    public String toString() {
+        return String.format("(Radius: %.2f)",radius);
+    }
+    
+    
     
 }
