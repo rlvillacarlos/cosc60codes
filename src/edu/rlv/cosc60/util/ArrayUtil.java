@@ -17,10 +17,31 @@ public class ArrayUtil {
     }
     
     public static <T> T[] randomArray(T[] src, int count){
+//        T[] tmp = (T[]) Array.newInstance(src[0].getClass(), count);
+//        Random rnd = new Random(System.currentTimeMillis());
+//        for(int i = 0;i<count;i++){
+//            tmp[i] = src[rnd.nextInt(src.length)];
+//        }
+//        return tmp;
+        return randomArray(src, count, true);
+    }
+    public static <T> T[] randomArray(T[] src, int count, boolean withRepetition){
         T[] tmp = (T[]) Array.newInstance(src[0].getClass(), count);
+        T[] copy = (T[]) Array.newInstance(src[0].getClass(), src.length);
+        System.arraycopy(src, 0, copy, 0, src.length);
         Random rnd = new Random(System.currentTimeMillis());
+        int offset = 0;
+        
         for(int i = 0;i<count;i++){
-            tmp[i] = src[rnd.nextInt(src.length)];
+            int rndIndx =  rnd.nextInt(copy.length-offset) + offset;
+            T a = copy[rndIndx];
+            copy[rndIndx] = copy[i];
+            copy[i] = a;
+            tmp[i] = a;
+            
+            if(!withRepetition){
+                offset++;
+            }
         }
         return tmp;
     }
