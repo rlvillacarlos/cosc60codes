@@ -49,6 +49,10 @@ public class SortedBag<E extends Comparable<E>> implements Iterable<E> {
         return m.contains(e);
     }
 
+    public boolean isEmpty(){
+        return size()==0;
+    }
+    
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
